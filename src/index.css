@@ -1,0 +1,103 @@
+@import 'tailwindcss';
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --color-surface: #fafaf8;
+  --color-ink: #14141a;
+  --color-muted: #6b6a72;
+  --color-line: #e8e7e3;
+  --color-accent: #2d6a4f;
+  --color-accent-soft: #d8f3dc;
+  --color-warn: #c1121f;
+  --color-warn-soft: #ffe5e5;
+}
+
+[data-theme='dark'] {
+  --color-surface: #0f0f12;
+  --color-ink: #f4f4f5;
+  --color-muted: #9b9aa3;
+  --color-line: #26262e;
+  --color-accent: #52b788;
+  --color-accent-soft: #1b2e24;
+  --color-warn: #ff6b6b;
+  --color-warn-soft: #2a1515;
+}
+
+[data-theme='light'] {
+  --color-surface: #fafaf8;
+  --color-ink: #14141a;
+  --color-muted: #6b6a72;
+  --color-line: #e8e7e3;
+  --color-accent: #2d6a4f;
+  --color-accent-soft: #d8f3dc;
+  --color-warn: #c1121f;
+  --color-warn-soft: #ffe5e5;
+}
+
+html {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes shame-wobble {
+    from {
+      transform: rotate(-0.6deg) scale(1);
+    }
+    to {
+      transform: rotate(0.6deg) scale(1.01);
+    }
+  }
+
+  @keyframes shame-flash {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.75;
+    }
+  }
+
+  @keyframes shame-card-pulse {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgba(193, 18, 31, 0.25);
+    }
+    50% {
+      box-shadow: 0 0 0 4px rgba(193, 18, 31, 0.15);
+    }
+  }
+
+  .shame-wobble {
+    animation: shame-wobble 0.45s ease-in-out infinite alternate;
+  }
+
+  .shame-flash {
+    animation: shame-flash 1.2s ease-in-out infinite;
+  }
+
+  .shame-card-pulse {
+    animation: shame-card-pulse 1.5s ease-in-out infinite;
+  }
+}
